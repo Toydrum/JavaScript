@@ -4,7 +4,7 @@ la tería de la armonía funcional*/
 
 function generarEscala(){
 
-  const notas = ["A", "Bb/G#", "B", "C", "Db/C#", "D", "Eb/D#", "E", "F", "Gb/F#", "G", "Ab/G#","A", "Bb/G#", "B", "C", "Db/C#", "D", "Eb/D#", "E", "F", "Gb/F#", "G", "Ab/G#"]
+  const notas = ["A", "Bb/A#", "B", "C", "Db/C#", "D", "Eb/D#", "E", "F", "Gb/F#", "G", "Ab/G#","A", "Bb/G#", "B", "C", "Db/C#", "D", "Eb/D#", "E", "F", "Gb/F#", "G", "Ab/G#"]
   let raiz = (prompt ("escoge la raíz de la escala de entre estas opciones: A, Bb/G#, B, C, Db/C#, D, Eb/D#, E, F, Gb/F#, G"))
   let modo = (confirm("presione Ok si quiere su escala en modo mayor y cancelar si la quiere en modo menor"))
     if(raiz == notas[0] && modo == true){
