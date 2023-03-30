@@ -16,7 +16,7 @@ function generarEscala() {
     "G", // 10
     "Ab/G#", // 11
     "A", // 12
-    "Bb/G#", // 13
+    "Bb/A#", // 13
     "B", // 14
     "C", // 15
     "Db/C#", // 16
@@ -27,15 +27,139 @@ function generarEscala() {
     "Gb/F#", // 21
     "G", // 22
     "Ab/G#", // 23
-    "A", // 24
   ];
-  let raiz = prompt(
-    "escoge la raíz de la escala de entre estas opciones: A, Bb/G#, B, C, Db/C#, D, Eb/D#, E, F, Gb/F#, G"
-  );
-  let modo = confirm(
-    "presione Ok si quiere su escala en modo mayor y cancelar si la quiere en modo menor"
-  );
-  let escala = [];
+  let raiz;
+  let seguir = false;
+  do {
+    raiz = prompt(
+      "escoge la raíz de la escala de entre estas opciones: A, Bb/A#, B, C, Db/C#, D, Eb/D#, E, F, Gb/F#, G"
+    );
+    if (raiz === "" || raiz === null || !notas.includes(raiz)) {
+      alert("Ingrese una raíz válida");
+    } else {
+      let modo = confirm(
+        "presione Ok si quiere su escala en modo mayor y cancelar si la quiere en modo menor"
+      );
+      let escala;
+      /* Cambiar opciones para decidir su favorita */
+      escala = option4(notas, raiz, modo, escala);
+      if (!!escala) {
+        console.log(escala);
+        alert(escala.toString());
+      }
+      seguir = confirm(
+        "Desea generar otra escala? Presione cancelar para terminar."
+      );
+      if (!seguir) {
+        alert("Gracias por usar la herramienta.");
+      }
+    }
+  } while (raiz === "" || raiz === null || !notas.includes(raiz) || seguir);
+}
+generarEscala();
+
+// Opción 1: if else anidados. - 94 líneas
+function option1(notas, raiz, modo, escala = null) {
+  if (raiz == notas[0] && modo == true) {
+    let escalaMayor = ["A", "B", "Db/C#", "Eb/D#", "E", "Gb/F#", "G"];
+    console.log(escalaMayor);
+  } else if (raiz == notas[0] && modo == false) {
+    let escalaMenor = ["A", "B", "C", "D", "E", "F", "G"];
+    console.log(escalaMenor);
+  }
+
+  if (raiz == notas[1] && modo == true) {
+    let escalaMayor = ["Bb/A#", "C", "D", "Eb/D#", "F", "G", "A"];
+    console.log(escalaMayor);
+  } else if (raiz == notas[1] && modo == false) {
+    let escalaMenor = ["Bb/A#", "C", "Db/C#", "Eb/D#", "F", "Gb/F#", "Ab/G#"];
+    console.log(escalaMenor);
+  }
+
+  if (raiz == notas[2] && modo == true) {
+    let escalaMayor = ["B", "Db/C#", "Eb/D#", "E", "Gb/F#", "Bb/A#"];
+    console.log(escalaMayor);
+  } else if (raiz == notas[2] && modo == false) {
+    let escalaMenor = ["B", "Db/C#", "D", "E", "Gb/F#", "G", "A"];
+    console.log(escalaMenor);
+  }
+
+  if (raiz == notas[3] && modo == true) {
+    let escalaMayor = ["C", "D", "E", "F", "G", "A", "B"];
+    console.log(escalaMayor);
+  } else if (raiz == notas[3] && modo == false) {
+    let escalaMenor = ["C", "D", "Eb/D#", "F", "G", "Ab/G#", "Bb/A#"];
+    console.log(escalaMenor);
+  }
+
+  if (raiz == notas[3] && modo == true) {
+    let escalaMayor = ["D", "E", "Gb/F#", "G", "A", "B", "Db/C#"];
+    console.log(escalaMayor);
+  } else if (raiz == notas[3] && modo == false) {
+    let escalaMenor = ["D", "E", "F", "G", "A", "Bb/A#", "C"];
+    console.log(escalaMenor);
+  }
+
+  if (raiz == notas[4] && modo == true) {
+    let escalaMayor = ["Db/C#", "Eb/D#", "F", "Gb/F#", "Ab/G#", "Bb/A#", "C"];
+    console.log(escalaMayor);
+  } else if (raiz == notas[4] && modo == false) {
+    let escalaMenor = ["Db/C#", "Eb/D#", "E", "Gb/F#", "Ab/G#", "A", "B"];
+    console.log(escalaMenor);
+  }
+
+  if (raiz == notas[5] && modo == true) {
+    let escalaMayor = ["D", "Eb/D#", "F", "Gb/F#", "Ab/G#", "Bb/A#", "C"];
+    console.log(escalaMayor);
+  } else if (raiz == notas[5] && modo == false) {
+    let escalaMenor = ["D", "E", "Gb/F#", "G", "A", "B", "Db/C#"];
+    console.log(escalaMenor);
+  }
+
+  if (raiz == notas[6] && modo == true) {
+    let escalaMayor = ["Eb/D#", "F", "G", "Ab/G#", "Bb/A#", "C", "D"];
+    console.log(escalaMayor);
+  } else if (raiz == notas[6] && modo == false) {
+    let escalaMenor = ["Eb/D#", "F", "Gb/F#", "Ab/G#", "Bb/A#", "B", "Db/C#"];
+    console.log(escalaMenor);
+  }
+
+  if (raiz == notas[7] && modo == true) {
+    let escalaMayor = ["E", "Gb/F#", "Ab/G#", "A", "B", "Db/C#", "Eb/D#"];
+    console.log(escalaMayor);
+  } else if (raiz == notas[7] && modo == false) {
+    let escalaMenor = ["E", "Gb/F#", "G", "A", "B", "C", "D"];
+    console.log(escalaMenor);
+  }
+
+  if (raiz == notas[8] && modo == true) {
+    let escalaMayor = ["Gb/F#", "Ab/G#", "B", "Db/C#", "Eb/D#", "F"];
+    console.log(escalaMayor);
+  } else if (raiz == notas[8] && modo == false) {
+    let escalaMenor = ["Gb/F#", "Ab/G#", "A", "B", "Db/C#", "D", "E"];
+    console.log(escalaMenor);
+  }
+
+  if (raiz == notas[9] && modo == true) {
+    let escalaMayor = ["G", "A", "B", "D", "E", "Gb/F#"];
+    console.log(escalaMayor);
+  } else if (raiz == notas[9] && modo == false) {
+    let escalaMenor = ["G", "A", "Bb/A#", "C", "D", "Eb/D#", "F", "G"];
+    console.log(escalaMenor);
+  }
+
+  if (raiz == notas[10] && modo == true) {
+    let escalaMayor = ["Ab/G#", "Bb/A#", "C", "Db/C#", "Eb/D#", "F", "G"];
+    console.log(escalaMayor);
+  } else if (raiz == notas[10] && modo == false) {
+    let escalaMenor = ["Ab/G#", "Bb/A#", "B", "Db/C#", "Eb/D#", "E", "Gb/F#"];
+    console.log(escalaMenor);
+  }
+  return null;
+}
+
+// Opción 2: switch - 304 líneas
+function option2(notas, raiz, modo, escala) {
   switch (raiz) {
     case notas[0]:
       if (modo) {
@@ -337,6 +461,43 @@ function generarEscala() {
       }
       break;
   }
-  console.log(escala);
+  return escala;
 }
-generarEscala();
+
+// Opción 3: Usando un index para encontrar la raíz y luego sumarle los intervalos de la escala. - 21 líneas
+function option3(notas, raiz, modo, escala) {
+  let index = notas.indexOf(notas.find((nota) => nota === raiz));
+  escala =
+    modo === true
+      ? [
+          notas[0 + index],
+          notas[2 + index],
+          notas[4 + index],
+          notas[5 + index],
+          notas[7 + index],
+          notas[9 + index],
+          notas[11 + index],
+        ]
+      : [
+          notas[0 + index],
+          notas[2 + index],
+          notas[3 + index],
+          notas[5 + index],
+          notas[7 + index],
+          notas[8 + index],
+          notas[10 + index],
+        ];
+  return escala;
+}
+
+// Opción 4: Usando modelos de escalas y agregando con push a la escala usando index. - 8 líneas
+function option4(notas, raiz, modo, escala) {
+  let escalaMayor = [0, 2, 4, 5, 7, 9, 11];
+  let escalaMenor = [0, 2, 3, 5, 7, 8, 10];
+  let index = notas.indexOf(notas.find((nota) => nota === raiz));
+  escala = [];
+  for (let i = 0; i < 7; i++) {
+    escala.push(notas[modo ? escalaMayor[i] + index : escalaMenor[i] + index]);
+  }
+  return escala;
+}
