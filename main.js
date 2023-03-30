@@ -1,107 +1,342 @@
 /*Mi proyecto es una herramienta para poder conocer las notas que conforman una escala en 
 la tería de la armonía funcional*/
 
-
-function generarEscala(){
-
-  const notas = ["A", "Bb/A#", "B", "C", "Db/C#", "D", "Eb/D#", "E", "F", "Gb/F#", "G", "Ab/G#","A", "Bb/G#", "B", "C", "Db/C#", "D", "Eb/D#", "E", "F", "Gb/F#", "G", "Ab/G#"]
-  let raiz = (prompt ("escoge la raíz de la escala de entre estas opciones: A, Bb/G#, B, C, Db/C#, D, Eb/D#, E, F, Gb/F#, G"))
-  let modo = (confirm("presione Ok si quiere su escala en modo mayor y cancelar si la quiere en modo menor"))
-    if(raiz == notas[0] && modo == true){
-      let escalaMayor =["A","B","Db/C#","Eb/D#","E","Gb/F#","G"]
-      console.log(escalaMayor)}
-
-    else if(raiz == notas[0] && modo == false){
-      let escalaMenor = ["A","B","C","D","E","F","G"]
-      console.log(escalaMenor)}
-
-    if(raiz == notas[1] && modo == true){
-      let escalaMayor =["Bb/A#","C","D","Eb/D#","F","G","A"]
-      console.log(escalaMayor)}
-  
-    else if(raiz == notas[1] && modo == false){
-      let escalaMenor = ["Bb/A#","C","Db/C#","Eb/D#","F","Gb/F#","Ab/G#"]
-      console.log(escalaMenor)}  
-
-    if(raiz == notas[2] && modo == true){
-      let escalaMayor =["B","Db/C#","Eb/D#","E","Gb/F#","Bb/A#"]
-      console.log(escalaMayor)}
-    
-    else if(raiz == notas[2] && modo == false){
-      let escalaMenor = ["B","Db/C#","D","E","Gb/F#","G","A"]
-      console.log(escalaMenor)}  
-  
-    if(raiz == notas[3] && modo == true){
-      let escalaMayor =["C","D","E","F","G","A","B"]
-      console.log(escalaMayor)}
-      
-    else if(raiz == notas[3] && modo == false){
-      let escalaMenor = ["C","D","Eb/D#","F","G","Ab/G#","Bb/A#"]
-      console.log(escalaMenor)} 
-
-    if(raiz == notas[3] && modo == true){
-      let escalaMayor =["D","E","Gb/F#","G","A","B","Db/C#"]
-      console.log(escalaMayor)}
-      
-    else if(raiz == notas[3] && modo == false){
-      let escalaMenor = ["D","E","F","G","A","Bb/A#","C"]
-      console.log(escalaMenor)}
-
-    if(raiz == notas[4] && modo == true){
-      let escalaMayor =["Db/C#","Eb/D#","F","Gb/F#","Ab/G#","Bb/A#","C"]
-      console.log(escalaMayor)}
-        
-    else if(raiz == notas[4] && modo == false){
-      let escalaMenor = ["Db/C#","Eb/D#","E","Gb/F#","Ab/G#","A","B"]
-      console.log(escalaMenor)}      
-
-    if(raiz == notas[5] && modo == true){
-      let escalaMayor =["D","Eb/D#","F","Gb/F#","Ab/G#","Bb/A#","C"]
-      console.log(escalaMayor)}
-          
-    else if(raiz == notas[5] && modo == false){
-      let escalaMenor = ["D","E","Gb/F#","G","A","B","Db/C#"]
-      console.log(escalaMenor)} 
-
-      if(raiz == notas[6] && modo == true){
-        let escalaMayor =["Eb/D#","F","G","Ab/G#","Bb/A#","C","D"]
-        console.log(escalaMayor)}
-            
-      else if(raiz == notas[6] && modo == false){
-        let escalaMenor = ["Eb/D#","F","Gb/F#","Ab/G#","Bb/A#","B","Db/C#"]
-        console.log(escalaMenor)}  
-
-      if(raiz == notas[7] && modo == true){
-        let escalaMayor =["E","Gb/F#","Ab/G#","A","B","Db/C#","Eb/D#"]
-        console.log(escalaMayor)}
-              
-      else if(raiz == notas[7] && modo == false){
-        let escalaMenor = ["E","Gb/F#","G","A","B","C","D"]
-        console.log(escalaMenor)}
-
-      if(raiz == notas[8] && modo == true){
-        let escalaMayor =["Gb/F#","Ab/G#","B","Db/C#","Eb/D#","F"]
-        console.log(escalaMayor)}
-
-      else if(raiz == notas[8] && modo == false){
-        let escalaMenor = ["Gb/F#","Ab/G#","A","B","Db/C#","D","E"]
-        console.log(escalaMenor)}
-
-      if(raiz == notas[9] && modo == true){
-        let escalaMayor =["G","A","B","D","E","Gb/F#"]
-        console.log(escalaMayor)}
-
-      else if(raiz == notas[9] && modo == false){
-        let escalaMenor = ["G","A","Bb/A#","C","D","Eb/D#","F","G"]
-        console.log(escalaMenor)}
-
-      if(raiz == notas[10] && modo == true){
-        let escalaMayor =["Ab/G#","Bb/A#","C","Db/C#","Eb/D#","F","G"]
-        console.log(escalaMayor)}
-
-      else if(raiz == notas[10] && modo == false){
-        let escalaMenor = ["Ab/G#","Bb/A#","B","Db/C#","Eb/D#","E", "Gb/F#"]
-        console.log(escalaMenor)}
-
+function generarEscala() {
+  const notas = [
+    "A", // 0
+    "Bb/A#", // 1
+    "B", // 2
+    "C", // 3
+    "Db/C#", // 4
+    "D", // 5
+    "Eb/D#", // 6
+    "E", // 7
+    "F", // 8
+    "Gb/F#", // 9
+    "G", // 10
+    "Ab/G#", // 11
+    "A", // 12
+    "Bb/G#", // 13
+    "B", // 14
+    "C", // 15
+    "Db/C#", // 16
+    "D", // 17
+    "Eb/D#", // 18
+    "E", // 19
+    "F", // 20
+    "Gb/F#", // 21
+    "G", // 22
+    "Ab/G#", // 23
+    "A", // 24
+  ];
+  let raiz = prompt(
+    "escoge la raíz de la escala de entre estas opciones: A, Bb/G#, B, C, Db/C#, D, Eb/D#, E, F, Gb/F#, G"
+  );
+  let modo = confirm(
+    "presione Ok si quiere su escala en modo mayor y cancelar si la quiere en modo menor"
+  );
+  let escala = [];
+  switch (raiz) {
+    case notas[0]:
+      if (modo) {
+        escala = [
+          notas[0],
+          notas[2],
+          notas[4],
+          notas[5],
+          notas[7],
+          notas[9],
+          notas[11],
+        ];
+      } else {
+        escala = [
+          notas[0],
+          notas[2],
+          notas[3],
+          notas[5],
+          notas[7],
+          notas[8],
+          notas[10],
+        ];
+      }
+      break;
+    case notas[1]:
+      if (modo) {
+        escala = [
+          notas[1],
+          notas[3],
+          notas[5],
+          notas[6],
+          notas[8],
+          notas[10],
+          notas[12],
+        ];
+      } else {
+        escala = [
+          notas[1],
+          notas[3],
+          notas[4],
+          notas[6],
+          notas[8],
+          notas[9],
+          notas[11],
+        ];
+      }
+      break;
+    case notas[2]:
+      if (modo) {
+        escala = [
+          notas[2],
+          notas[4],
+          notas[6],
+          notas[7],
+          notas[9],
+          notas[11],
+          notas[13],
+        ];
+      } else {
+        escala = [
+          notas[2],
+          notas[4],
+          notas[5],
+          notas[7],
+          notas[9],
+          notas[10],
+          notas[12],
+        ];
+      }
+      break;
+    case notas[3]:
+      if (modo) {
+        escala = [
+          notas[3],
+          notas[5],
+          notas[7],
+          notas[8],
+          notas[10],
+          notas[12],
+          notas[14],
+        ];
+      } else {
+        escala = [
+          notas[3],
+          notas[5],
+          notas[6],
+          notas[8],
+          notas[10],
+          notas[11],
+          notas[13],
+        ];
+      }
+      break;
+    case notas[4]:
+      if (modo) {
+        escala = [
+          notas[4],
+          notas[6],
+          notas[8],
+          notas[9],
+          notas[11],
+          notas[13],
+          notas[15],
+        ];
+      } else {
+        escala = [
+          notas[4],
+          notas[6],
+          notas[7],
+          notas[9],
+          notas[11],
+          notas[12],
+          notas[14],
+        ];
+      }
+      break;
+    case notas[5]:
+      if (modo) {
+        escala = [
+          notas[5],
+          notas[7],
+          notas[9],
+          notas[10],
+          notas[12],
+          notas[14],
+          notas[16],
+        ];
+      } else {
+        escala = [
+          notas[5],
+          notas[7],
+          notas[8],
+          notas[10],
+          notas[12],
+          notas[13],
+          notas[15],
+        ];
+      }
+      break;
+    case notas[6]:
+      if (modo) {
+        escala = [
+          notas[6],
+          notas[8],
+          notas[10],
+          notas[11],
+          notas[13],
+          notas[15],
+          notas[17],
+        ];
+      } else {
+        escala = [
+          notas[6],
+          notas[8],
+          notas[9],
+          notas[11],
+          notas[13],
+          notas[14],
+          notas[16],
+        ];
+      }
+      break;
+    case notas[7]:
+      if (modo) {
+        escala = [
+          notas[7],
+          notas[9],
+          notas[11],
+          notas[12],
+          notas[14],
+          notas[16],
+          notas[18],
+        ];
+      } else {
+        escala = [
+          notas[7],
+          notas[9],
+          notas[10],
+          notas[12],
+          notas[14],
+          notas[15],
+          notas[17],
+        ];
+      }
+      break;
+    case notas[8]:
+      if (modo) {
+        escala = [
+          notas[8],
+          notas[10],
+          notas[12],
+          notas[13],
+          notas[15],
+          notas[17],
+          notas[19],
+        ];
+      } else {
+        escala = [
+          notas[8],
+          notas[10],
+          notas[11],
+          notas[13],
+          notas[15],
+          notas[16],
+          notas[18],
+        ];
+      }
+      break;
+    case notas[9]:
+      if (modo) {
+        escala = [
+          notas[9],
+          notas[11],
+          notas[13],
+          notas[14],
+          notas[16],
+          notas[18],
+          notas[20],
+        ];
+      } else {
+        escala = [
+          notas[9],
+          notas[11],
+          notas[12],
+          notas[14],
+          notas[16],
+          notas[17],
+          notas[19],
+        ];
+      }
+      break;
+    case notas[10]:
+      if (modo) {
+        escala = [
+          notas[10],
+          notas[12],
+          notas[14],
+          notas[15],
+          notas[17],
+          notas[19],
+          notas[21],
+        ];
+      } else {
+        escala = [
+          notas[10],
+          notas[12],
+          notas[13],
+          notas[15],
+          notas[17],
+          notas[18],
+          notas[20],
+        ];
+      }
+      break;
+    case notas[11]:
+      if (modo) {
+        escala = [
+          notas[11],
+          notas[13],
+          notas[15],
+          notas[16],
+          notas[18],
+          notas[20],
+          notas[22],
+        ];
+      } else {
+        escala = [
+          notas[11],
+          notas[13],
+          notas[14],
+          notas[16],
+          notas[18],
+          notas[19],
+          notas[21],
+        ];
+      }
+      break;
+    case notas[12]:
+      if (modo) {
+        escala = [
+          notas[12],
+          notas[14],
+          notas[16],
+          notas[17],
+          notas[19],
+          notas[21],
+          notas[23],
+        ];
+      } else {
+        escala = [
+          notas[12],
+          notas[14],
+          notas[15],
+          notas[17],
+          notas[19],
+          notas[20],
+          notas[22],
+        ];
+      }
+      break;
+  }
+  console.log(escala);
 }
-generarEscala()
+generarEscala();
