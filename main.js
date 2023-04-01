@@ -1,5 +1,6 @@
 /*Mi proyecto es una herramienta para poder conocer las notas que conforman una escala en 
-la tería de la armonía funcional*/
+la tería de la armonía funcional. Hice cuatro opciones para obtener el mismo resultado, la opcion4
+utliza un cilo for y algunos metodos que aprendí por fuera.*/
 
 function generarEscala() {
   const notas = [
