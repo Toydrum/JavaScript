@@ -467,7 +467,8 @@ function option2(notas, raiz, modo, escala) {
 
 // Opción 3: Usando un index para encontrar la raíz y luego sumarle los intervalos de la escala. - 21 líneas
 function option3(notas, raiz, modo, escala) {
-  let index = notas.indexOf(notas.find((nota) => nota === raiz));
+  let nota = notas.find((nota) => nota === raiz);
+  let index = notas.indexOf(nota);
   escala =
     modo === true
       ? [
@@ -495,10 +496,17 @@ function option3(notas, raiz, modo, escala) {
 function option4(notas, raiz, modo, escala) {
   let escalaMayor = [0, 2, 4, 5, 7, 9, 11];
   let escalaMenor = [0, 2, 3, 5, 7, 8, 10];
-  let index = notas.indexOf(notas.find((nota) => nota === raiz));
+  let nota = notas.find((nota) => nota === raiz);
+  let index = notas.indexOf(nota);
   escala = [];
   for (let i = 0; i < 7; i++) {
-    escala.push(notas[modo ? escalaMayor[i] + index : escalaMenor[i] + index]);
+    let realIndex;
+    if (modo === true) {
+      realIndex = escalaMayor[i] + index;
+    } else {
+      realIndex = escalaMenor[i] + index;
+    }
+    escala.push(notas[realIndex]);
   }
   return escala;
 }
