@@ -1,7 +1,7 @@
 /*Mi proyecto es una herramienta para poder conocer las notas que conforman una escala en 
-la tería de la armonía funcional. Hice cuatro opciones para obtener el mismo resultado, la opcion4
-utliza un cilo for y algunos metodos que aprendí por fuera. las notas
-musicales estan escritas con letras por el sistema berkley que es el que se ocupa
+la teoría de la armonía funcional. Hice cuatro opciones para obtener el mismo resultado, la opcion4
+utiliza un ciclo for y algunos métodos que aprendí por fuera. las notas
+musicales están escritas con letras por el sistema Berkley que es el que se ocupa
 internacionalmente para manejar teoría musical*/
 
 function generarEscala() {
@@ -61,7 +61,7 @@ function generarEscala() {
 }
 generarEscala();
 
-// Opción 1: if else anidados. - 94 líneas
+/* // Opción 1: if else anidados. - 94 líneas
 function option1(notas, raiz, modo, escala = null) {
   if (raiz == notas[0] && modo == true) {
     let escalaMayor = ["A", "B", "Db/C#", "Eb/D#", "E", "Gb/F#", "G"];
@@ -492,7 +492,7 @@ function option3(notas, raiz, modo, escala) {
           notas[10 + index],
         ];
   return escala;
-}
+} */
 
 // Opción 4: Usando modelos de escalas y agregando con push a la escala usando index. - 8 líneas
 function option4(notas, raiz, modo, escala) {
