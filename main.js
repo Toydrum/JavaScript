@@ -498,6 +498,8 @@ function option3(notas, raiz, modo, escala) {
 function option4(notas, raiz, modo, escala) {
   let escalaMayor = [0, 2, 4, 5, 7, 9, 11];
   let escalaMenor = [0, 2, 3, 5, 7, 8, 10];
+  let escalaMenorMelodica = [0, 2, 3, 5, 7, 9, 11];
+  let escalaMenorArmonica = [0, 2, 3, 5, 7, 8, 11];
   let nota = notas.find((nota) => nota === raiz);
   let index = notas.indexOf(nota);
   escala = [];
@@ -512,3 +514,18 @@ function option4(notas, raiz, modo, escala) {
   }
   return escala;
 }
+
+function Modo(primerG, segundoG, tercerG, cuartoG, quintoG, sextoG, septimoG){
+  this.primerG = primerG
+  this.segundoG = segundoG
+  this.tercerG = tercerG
+  this.cuartoG = cuartoG
+  this.quintoG = quintoG
+  this.sextoG = sextoG
+  this.septimoG = septimoG
+}
+
+const modoMayor = new Modo(0,2,4,5,7,9,11)
+const modoMenor = new Modo(0,2,3,5,7,8,10)
+const modoMenorMelodica = new Modo(0,2,3,5,7,9,11)
+const modoMenorArmonica = new Modo(0,2,3,5,7,8,11)
