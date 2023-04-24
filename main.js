@@ -36,7 +36,7 @@ function seleccionarNota() {
   const select = document.getElementById("notas");
   const indexSeleccionado = select.selectedIndex;
   const elementoSeleccionado = notas[indexSeleccionado];
-  console.log(`La opción seleccionada es: ${elementoSeleccionado} en la posición ${indexSeleccionado}`)
+  //console.log(`La opción seleccionada es: ${elementoSeleccionado} en la posición ${indexSeleccionado}`)
   return indexSeleccionado;
 } 
 
@@ -60,7 +60,7 @@ function seleccionarModo() {
       break;
   }
   
-  console.log(indicesASumar);
+  //console.log(indicesASumar);
 
   let escala = [];
 
