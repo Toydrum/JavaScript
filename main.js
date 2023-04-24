@@ -3,8 +3,119 @@ la teoría de la armonía funcional. Hice cuatro opciones para obtener el mismo 
 utiliza un ciclo for y algunos métodos que aprendí por fuera. las notas
 musicales están escritas con letras por el sistema Berkley que es el que se ocupa
 internacionalmente para manejar teoría musical*/
+const notas = [         //Estas son las 12 notas que hay en nuestro sistema occidental
+  "A", // 0
+  "Bb/A#", // 1
+  "B", // 2
+  "C", // 3
+  "Db/C#", // 4
+  "D", // 5
+  "Eb/D#", // 6
+  "E", // 7
+  "F", // 8
+  "Gb/F#", // 9
+  "G", // 10
+  "Ab/G#", // 11
+  "A", // 12
+  "Bb/A#", // 13
+  "B", // 14
+  "C", // 15
+  "Db/C#", // 16
+  "D", // 17
+  "Eb/D#", // 18
+  "E", // 19
+  "F", // 20
+  "Gb/F#", // 21
+  "G", // 22
+  "Ab/G#", // 23
+];
 
-function generarEscala() {
+
+
+function seleccionarNota() { 
+  const select = document.getElementById("notas");
+  const indexSeleccionado = select.selectedIndex;
+  const elementoSeleccionado = notas[indexSeleccionado];
+  console.log(`La opción seleccionada es: ${elementoSeleccionado} en la posición ${indexSeleccionado}`)
+  return indexSeleccionado;
+} 
+
+function seleccionarModo() {
+  const indexSeleccionado = seleccionarNota();
+  let indicesASumar = [];
+  const modoSeleccionado = document.getElementById('modo').value;
+
+  switch (modoSeleccionado) {
+    case 'mayor':
+      indicesASumar = [0, 2, 4, 5, 7, 9, 11];
+      break;
+    case 'menor':
+      indicesASumar = [0, 2, 3, 5, 7, 8, 10];
+      break;
+    case 'menorArmónica':
+      indicesASumar = [0, 2, 3, 5, 7, 8, 11];
+      break;
+    case 'menorMelódica':
+      indicesASumar = [0, 2, 3, 5, 7, 9, 11];
+      break;
+  }
+  
+  console.log(indicesASumar);
+
+  let escala = [];
+
+  indicesASumar.forEach((indice) => {
+    escala.push(notas[(indexSeleccionado + indice) % notas.length]);
+  });
+
+  console.log(escala);
+}
+
+      
+      
+
+
+
+
+/* const indexSeleccionado = seleccionarNota();
+seleccionarModo(indexSeleccionado); */
+
+/* function capturarValor(){
+  let input = document.getElementById("miInput");
+  let raiz = input.value;
+  //console.log(raiz)
+
+    if (raiz === "" || raiz === null || !notas.includes(raiz)){
+      alert("Ingrese una raíz válida");}
+    
+    } */
+    
+  
+  
+  
+    
+    
+    
+  /*   function generarEscalaAlec(notas, raiz, modo, escala) {
+      let escalaMayor = [0, 2, 4, 5, 7, 9, 11];
+      let escalaMenor = [0, 2, 3, 5, 7, 8, 10];
+      let escalaMenorMelodica = [0, 2, 3, 5, 7, 9, 11];
+      let escalaMenorArmonica = [0, 2, 3, 5, 7, 8, 11];
+      let nota = notas.find((nota) => nota === raiz);
+      let index = notas.indexOf(nota);
+      escala = [];
+      for (let i = 0; i < 7; i++) {
+        let realIndex;
+        if (modo) {
+          realIndex = escalaMayor[i] + index;
+          if (modo === )
+          realIndex = escalaMenor[i] + index;
+        }
+        escala.push(notas[realIndex]);
+      }
+      return escala;
+    } */
+    /* function generarEscala() {
   const notas = [         //Estas son las 12 notas que hay en nuestro sistema occidental
     "A", // 0
     "Bb/A#", // 1
@@ -31,12 +142,66 @@ function generarEscala() {
     "G", // 22
     "Ab/G#", // 23
   ];
-  let raiz;
-  let seguir = false;
+  
+
+
+
+
+
+  function option4(notas, raiz, modo, escala) {
+    let escalaMayor = [0, 2, 4, 5, 7, 9, 11];
+    let escalaMenor = [0, 2, 3, 5, 7, 8, 10];
+    let escalaMenorMelodica = [0, 2, 3, 5, 7, 9, 11];
+    let escalaMenorArmonica = [0, 2, 3, 5, 7, 8, 11];
+    let nota = notas.find((nota) => nota === raiz);
+    let index = notas.indexOf(nota);
+    escala = [];
+    for (let i = 0; i < 7; i++) {
+      let realIndex;
+      if (modo === true) {
+        realIndex = escalaMayor[i] + index;
+      } else {
+        realIndex = escalaMenor[i] + index;
+      }
+      escala.push(notas[realIndex]);
+    }
+    return escala;
+  }
+  
+  function Modo(primerG, segundoG, tercerG, cuartoG, quintoG, sextoG, septimoG){
+    this.primerG = primerG
+    this.segundoG = segundoG
+    this.tercerG = tercerG
+    this.cuartoG = cuartoG
+    this.quintoG = quintoG
+    this.sextoG = sextoG
+    this.septimoG = septimoG
+  }
+  
+  const modoMayor = new Modo(0,2,4,5,7,9,11)
+  const modoMenor = new Modo(0,2,3,5,7,8,10)
+  const modoMenorMelodica = new Modo(0,2,3,5,7,9,11)
+  const modoMenorArmonica = new Modo(0,2,3,5,7,8, 11)
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*   let seguir = false;
   do {
-    raiz = prompt(
-      "escoge la raíz de la escala de entre estas opciones: A, Bb/A#, B, C, Db/C#, D, Eb/D#, E, F, Gb/F#, G"
-    );
     if (raiz === "" || raiz === null || !notas.includes(raiz)) {
       alert("Ingrese una raíz válida");
     } else {
@@ -45,7 +210,7 @@ function generarEscala() {
       );
       let escala;
       /* Cambiar opciones para decidir su favorita */
-      escala = option4(notas, raiz, modo, escala);
+      /* escala = option4(notas, raiz, modo, escala);
       if (!!escala) {
         console.log(escala);
         alert(escala.toString());
@@ -59,7 +224,7 @@ function generarEscala() {
     }
   } while (raiz === "" || raiz === null || !notas.includes(raiz) || seguir);
 }
-generarEscala();
+generarEscala();  */
 
 /* // Opción 1: if else anidados. - 94 líneas
 function option1(notas, raiz, modo, escala = null) {
@@ -495,37 +660,3 @@ function option3(notas, raiz, modo, escala) {
 } */
 
 // Opción 4: Usando modelos de escalas y agregando con push a la escala usando index. - 8 líneas
-function option4(notas, raiz, modo, escala) {
-  let escalaMayor = [0, 2, 4, 5, 7, 9, 11];
-  let escalaMenor = [0, 2, 3, 5, 7, 8, 10];
-  let escalaMenorMelodica = [0, 2, 3, 5, 7, 9, 11];
-  let escalaMenorArmonica = [0, 2, 3, 5, 7, 8, 11];
-  let nota = notas.find((nota) => nota === raiz);
-  let index = notas.indexOf(nota);
-  escala = [];
-  for (let i = 0; i < 7; i++) {
-    let realIndex;
-    if (modo === true) {
-      realIndex = escalaMayor[i] + index;
-    } else {
-      realIndex = escalaMenor[i] + index;
-    }
-    escala.push(notas[realIndex]);
-  }
-  return escala;
-}
-
-function Modo(primerG, segundoG, tercerG, cuartoG, quintoG, sextoG, septimoG){
-  this.primerG = primerG
-  this.segundoG = segundoG
-  this.tercerG = tercerG
-  this.cuartoG = cuartoG
-  this.quintoG = quintoG
-  this.sextoG = sextoG
-  this.septimoG = septimoG
-}
-
-const modoMayor = new Modo(0,2,4,5,7,9,11)
-const modoMenor = new Modo(0,2,3,5,7,8,10)
-const modoMenorMelodica = new Modo(0,2,3,5,7,9,11)
-const modoMenorArmonica = new Modo(0,2,3,5,7,8,11)

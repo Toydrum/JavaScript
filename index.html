@@ -6,11 +6,30 @@
   <title>Generador Armónico</title>
 </head>
 <body>
-  
-  <button id="mayor">Mayor</button>
-  <button id="menor">Menor</button>
-  <button id="menorArmonica">Menor Armónica</button>
-  <button id="menorMelodica">Menor Melódica</button>
+  <select id="notas" onchange="seleccionarNota()">
+    <option value="A">A</option>
+    <option value="Bb/A#">Bb/A#</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="Db/C#">Db/C#</option>
+    <option value="D">D</option>
+    <option value="Eb/D#">Eb/D#</option>
+    <option value="E">E</option>
+    <option value="F">F</option>
+    <option value="Gb/F#">Gb/F#</option>
+    <option value="G">G</option>
+    <option value="Ab/G#">Ab/G#</option>
+  </select>
+
+  <select onchange="seleccionarModo()" name="Modo" id="modo">
+    <option value="mayor">Mayor</option>
+    <option value="menor">Menor</option>
+    <option value="menorArmónica">Menor Armónica</option>
+    <option value="menorMelódica">Menor Melódica</option>
+  </select>
+
+  </select>
+  <button onclick="capturarValor()">Dame la escala</button>
 
 
   <script src="main.js"></script>
