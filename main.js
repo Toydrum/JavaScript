@@ -3,7 +3,8 @@ la teoría de la armonía funcional. Hice cuatro opciones para obtener el mismo 
 utiliza un ciclo for y algunos métodos que aprendí por fuera. las notas
 musicales están escritas con letras por el sistema Berkley que es el que se ocupa
 internacionalmente para manejar teoría musical*/
-const notas = [         //Estas son las 12 notas que hay en nuestro sistema occidental
+const notas = [
+  //Estas son las 12 notas que hay en nuestro sistema occidental
   "A", // 0
   "Bb/A#", // 1
   "B", // 2
@@ -30,51 +31,58 @@ const notas = [         //Estas son las 12 notas que hay en nuestro sistema occi
   "Ab/G#", // 23
 ];
 
-
-
-function seleccionarNota() { 
+const escalas = [];
+const btnDameEscala = document.getElementById("dameEscala"); 
+btnDameEscala.addEventListener("click", () => {
   const select = document.getElementById("notas");
   const indexSeleccionado = select.selectedIndex;
-  const elementoSeleccionado = notas[indexSeleccionado];
-  //console.log(`La opción seleccionada es: ${elementoSeleccionado} en la posición ${indexSeleccionado}`)
-  return indexSeleccionado;
-} 
+  const modoSeleccionado = document.getElementById("modo").value;
+  escalas.push(new Escala (indexSeleccionado, modoSeleccionado));
+  console.log(escalas);
+  miralo.innerHTML = "";
+  escalas.forEach((e,i) => miralo.innerHTML += `<p>${i+1}.- La escala ${e.getNombreNota()} ${e.modo}:</p><p>${e.getEscala().join(", ")}</p>`);
+});
 
-function seleccionarModo() {
-  const indexSeleccionado = seleccionarNota();
+const miralo = document.getElementById("miralo");
+
+//------------Funciones--------------
+function Escala(nota, modo) {
+  this.nota = nota;
+  this.modo = modo;
+
+  this.getEscala = () => {
+    return seleccionarModo(this.nota, this.modo);
+  };
+  this.getNombreNota = () => {return notas[this.nota.toString()]};
+}
+
+function seleccionarModo(nota, modo) {
+  /* const indexSeleccionado = seleccionarNota(nota); */
   let indicesASumar = [];
-  const modoSeleccionado = document.getElementById('modo').value;
 
-  switch (modoSeleccionado) {
-    case 'mayor':
+  switch (modo) {
+    case "mayor":
       indicesASumar = [0, 2, 4, 5, 7, 9, 11];
       break;
-    case 'menor':
+    case "menor":
       indicesASumar = [0, 2, 3, 5, 7, 8, 10];
       break;
-    case 'menorArmónica':
+    case "menorArmónica":
       indicesASumar = [0, 2, 3, 5, 7, 8, 11];
       break;
-    case 'menorMelódica':
+    case "menorMelódica":
       indicesASumar = [0, 2, 3, 5, 7, 9, 11];
       break;
   }
-  
-  //console.log(indicesASumar);
 
   let escala = [];
 
   indicesASumar.forEach((indice) => {
-    escala.push(notas[(indexSeleccionado + indice) % notas.length]);
+    escala.push(notas[(nota + indice) % notas.length]);
   });
 
-  console.log(escala);
+  return escala;
 }
-
-      
-      
-
-
 
 
 /* const indexSeleccionado = seleccionarNota();
@@ -89,14 +97,8 @@ seleccionarModo(indexSeleccionado); */
       alert("Ingrese una raíz válida");}
     
     } */
-    
-  
-  
-  
-    
-    
-    
-  /*   function generarEscalaAlec(notas, raiz, modo, escala) {
+
+/*   function generarEscalaAlec(notas, raiz, modo, escala) {
       let escalaMayor = [0, 2, 4, 5, 7, 9, 11];
       let escalaMenor = [0, 2, 3, 5, 7, 8, 10];
       let escalaMenorMelodica = [0, 2, 3, 5, 7, 9, 11];
@@ -115,7 +117,7 @@ seleccionarModo(indexSeleccionado); */
       }
       return escala;
     } */
-    /* function generarEscala() {
+/* function generarEscala() {
   const notas = [         //Estas son las 12 notas que hay en nuestro sistema occidental
     "A", // 0
     "Bb/A#", // 1
@@ -184,22 +186,6 @@ seleccionarModo(indexSeleccionado); */
   const modoMenorArmonica = new Modo(0,2,3,5,7,8, 11)
 } */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*   let seguir = false;
   do {
     if (raiz === "" || raiz === null || !notas.includes(raiz)) {
@@ -210,7 +196,7 @@ seleccionarModo(indexSeleccionado); */
       );
       let escala;
       /* Cambiar opciones para decidir su favorita */
-      /* escala = option4(notas, raiz, modo, escala);
+/* escala = option4(notas, raiz, modo, escala);
       if (!!escala) {
         console.log(escala);
         alert(escala.toString());
