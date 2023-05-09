@@ -37,10 +37,15 @@ btnDameEscala.addEventListener("click", () => {
   const select = document.getElementById("notas");
   const indexSeleccionado = select.selectedIndex;
   const modoSeleccionado = document.getElementById("modo").value;
-  escalas.push(new Escala (indexSeleccionado, modoSeleccionado));
+  const nombreNota = notas[indexSeleccionado];
+  const escala = seleccionarModo(indexSeleccionado, modoSeleccionado);
+  escalas.push({ nota: nombreNota, escala: escala });
   console.log(escalas);
   miralo.innerHTML = "";
-  escalas.forEach((e,i) => miralo.innerHTML += `<p>${i+1}.- La escala ${e.getNombreNota()} ${e.modo}:</p><p>${e.getEscala().join(", ")}</p>`);
+  escalas.forEach((e, i) => {
+    miralo.innerHTML += `<p>${i + 1}.- La escala ${e.nota} ${modoSeleccionado}:</p><p>${e.escala.join(", ")}</p>`;
+  });
+  localStorage.setItem("escalasGuardadas", JSON.stringify(escalas));
 });
 
 const miralo = document.getElementById("miralo");
@@ -84,7 +89,7 @@ function seleccionarModo(nota, modo) {
     escala.push(notas[(nota + indice) % notas.length]);
   });
   
-  localStorage.setItem("escalaActual", JSON.stringify(escala));
+
 
   return escala;
 }
