@@ -30,36 +30,20 @@ const notas = [
   "G", // 22
   "Ab/G#", // 23
 ];
-let escalasGuardadas = JSON.parse(localStorage.getItem("escalasGuardadas")) || [];
-let contadorEscalas = escalasGuardadas.length;
 const escalas = [];
 const btnDameEscala = document.getElementById("dameEscala"); 
-const miralo = document.getElementById("miralo");
-
-escalasGuardadas.forEach((e, i) => {
-  escalas.push({ nota: e.nota, escala: e.escala });
-  miralo.innerHTML += `<p>${i + 1}.- La escala ${e.nota} ${e.escala[0].includes("b") ? "b" : ""}${e.escala[0].replace(/[A-G]b/g, (match) => match[0])} ${e.escala[0].includes("m") ? "m" : ""}:</p><p>${e.escala.join(", ")}</p>`;
-});
 btnDameEscala.addEventListener("click", () => {
   const select = document.getElementById("notas");
   const indexSeleccionado = select.selectedIndex;
   const modoSeleccionado = document.getElementById("modo").value;
-  const nombreNota = notas[indexSeleccionado];
-  const escala = seleccionarModo(indexSeleccionado, modoSeleccionado);
-  const id = ++contadorEscalas;
-  escalas.push({ nota: nombreNota, escala: escala });
-  console.log(escalas);
+  escalas.push(new Escala (indexSeleccionado, modoSeleccionado));
   miralo.innerHTML = "";
-  escalas.forEach((e, i) => {
-    miralo.innerHTML += `<p>${i + 1}.- La escala ${e.nota} ${modoSeleccionado}:</p><p>${e.escala.join(", ")}</p>`;
-  });
-  escalasGuardadas.push({ nota: nombreNota, escala: escala });
-
-  // Guardar la lista actualizada en el LocalStorage
-  localStorage.setItem("escalasGuardadas", JSON.stringify(escalasGuardadas));
-
+  escalas.forEach((e,i) => miralo.innerHTML += `<p>${i+1}.- La escala ${e.getNombreNota()} ${e.modo}:</p><p>${e.getEscala().join(", ")}</p>`);
+  let escalasGuardadas = JSON.stringify(seleccionarModo(indexSeleccionado, modoSeleccionado))
+  localStorage.setItem(`escala`, escalasGuardadas)
+  console.log(escalasGuardadas);
 });
-
+const miralo = document.getElementById("miralo");
 
 
 //------------Funciones--------------
