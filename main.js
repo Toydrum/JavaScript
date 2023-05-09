@@ -45,7 +45,9 @@ btnDameEscala.addEventListener("click", () => {
 
 const miralo = document.getElementById("miralo");
 
+
 //------------Funciones--------------
+
 function Escala(nota, modo) {
   this.nota = nota;
   this.modo = modo;
@@ -56,8 +58,9 @@ function Escala(nota, modo) {
   this.getNombreNota = () => {return notas[this.nota.toString()]};
 }
 
+
 function seleccionarModo(nota, modo) {
-  /* const indexSeleccionado = seleccionarNota(nota); */
+
   let indicesASumar = [];
 
   switch (modo) {
@@ -80,6 +83,8 @@ function seleccionarModo(nota, modo) {
   indicesASumar.forEach((indice) => {
     escala.push(notas[(nota + indice) % notas.length]);
   });
+  
+  localStorage.setItem("escalaActual", JSON.stringify(escala));
 
   return escala;
 }
