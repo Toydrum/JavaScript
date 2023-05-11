@@ -57,8 +57,8 @@ function crearEscalas(indexSeleccionado, modoSeleccionado){
     miralo.innerHTML += `<p>${i+1}.- La escala ${e.getNombreNota()} ${e.modo}:</p><p>${e.getEscala().join(", ")}</p>`});
   localStorage.setItem(`escalas`, JSON.stringify(escalas))
   localStorage.setItem(`escalasParsed`, JSON.stringify(escalasParsed));
+
 }
-  
 function Escala(nota, modo) {
   this.nota = nota;
   this.modo = modo;
