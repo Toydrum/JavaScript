@@ -54,7 +54,7 @@ const dameEjemplos = document.getElementById("ejemplos");
 const ejemplo = [];
 
 dameEjemplos.addEventListener('click', () => {
-  fetch('/info.json')
+  fetch('info.json')
     .then(response => response.json())
     .then(data => {
       ejemplo.push(...data);
