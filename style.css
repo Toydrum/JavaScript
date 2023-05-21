@@ -1,0 +1,53 @@
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  margin-bottom: 50px;
+  background-color: black;
+}
+h1{
+  text-align: center;
+  margin: 75px;
+}
+
+#notas{
+  border-radius: 7px;
+}
+#modo{
+  border-radius: 7px;
+}
+#dameEscala{
+  border-radius: 7px;
+}
+#clear{
+  border-radius: 7px;
+}
+@keyframes slideEntry {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#respuesta {
+  align-items: center;
+  border: 5px solid #ffc107; /* Color amarillo de estilo "warning" */
+  width: 18rem;
+  animation: slideEntry 0.5s ease-in-out;
+  transform: translateX(50%);
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
